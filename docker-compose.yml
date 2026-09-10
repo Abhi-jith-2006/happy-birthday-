@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: distributed-queue-postgres
+    environment:
+      POSTGRES_DB: distributed_queue
+      POSTGRES_USER: queue_user
+      POSTGRES_PASSWORD: queue_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
